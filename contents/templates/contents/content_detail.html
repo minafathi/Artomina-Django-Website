@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+<!-- {% load static from staticfiles %} -->
+{% load static %}
+{% block content %}
+    <div id="content_list" class="contenttext">
+        <div class="content_container">
+                <h1 class="contentheader"><a  class="ctitle" href="">{{ content.title }}</a></h1>
+                <div class="content_content">
+                    <h5 class="content_text ctextdesk">{{ content.description }}</h5>
+                    <h5 class="content_text ctextdesk">{{ content.more }}</h5>
+                    <img class="content_pic contdesk" src='/{{ content.pic }}' />
+                </div>
+                
+                <hr class="style-one">
+
+        </div>
+    </div>
+{% endblock %}

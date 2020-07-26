@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+
+<div class="collection  content_list_in">
+    <h4 class="collectionttl">آلبوم</h4>
+    <hr class="primary">
+    <div class="row" style="margin-top: 100px;">
+        {% for paint in paints %}
+            <div class="col-md-6 paint_album">
+                    <img src='/{{ paint.image }}' class="homeportrate imgalbdesk"/>
+                    <!-- <div class="namebox namebox text-center">
+                        <h3 class="galttl">
+                            {{ paint.name }}
+                        </h3>
+                    </div> -->
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+    
+{% endblock %}

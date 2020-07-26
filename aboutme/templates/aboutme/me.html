@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+<!-- {% load static from staticfiles %} -->
+{% load static %}
+
+{% block content %}
+
+<div id="content_list">
+    <div class="aboutmeh">
+        {% for me in me %}
+            <div class="backimg">
+                <img id="adminimg" src="/{{ me.pic }}" style="max-width:300px;max-height:300px;" />
+            </div>
+            <h2 class="adminname">{{ me.name }}</h2>
+            <h1 class="bbl">{{ this.bbl }}</h1>
+            <div class="aboutme">
+                <h3 style="padding-right: 10px;"><p>درباره من : </p></h3>
+                <h5 style="padding: 10px;"><p>من یک برنامه نویس نقاش هستم و عاشق هنر و نقاشی هستم. حدودا از 4 سال پیش شروع به نقاشی کردم و پرتره هدف اصلی من هست, در کنار اون از سبک های دیگه نقاشی هم لذت میبرم و در امتداد کارهای هنری برنامه نویسی هم انجام میدم :)</p></h5> 
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock %}

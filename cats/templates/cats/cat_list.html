@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+
+<div id="content_list" class="content_list">
+    <h4 class="collectionttl">مجموعه ها</h4>
+    <hr class="primary">
+    <div class="collection row">
+        {% for cat in cats %}
+            <div class="col-md-6 cat">
+                <a href="{% url 'cats:detail' pk=cat.pk %}">
+                    <img src='/{{ cat.pic }}' class="homeportrate homeportrate{{ cat.id }} imgalbdeskcat"/>
+                    <div class="namebox namebox{{ cat.id }} text-center">
+                        <h3 class="galttl">
+                            {{ cat.title }}
+                        </h3>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+    
+{% endblock %}

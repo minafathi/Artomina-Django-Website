@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+<h1>{{ cat.title }}</h1>
+<br><br>
+{% block content %}
+<button type="button" class="bbut btn btn-dark"><a class="back" href="/cats/{{ paint.cat.id }}">بازگشت</a></button>
+    <div class="collection content_list_in">
+        <!-- <div class="boxs">          -->
+                <div class="paint_album">
+                    <!-- <div class="gimg"> -->
+                            <img class="central imgalbdesksolo" src="/{{ paint.image }}" />
+                            
+                            <!-- <div class="galin">
+                                <h4 class="pnam">{{ paint.name }}</h4>
+                                <br>
+                                <h6 class='pdes'>{{ paint.size }}</h6>
+                            </div> -->
+                    <!-- </div> -->
+                </div>
+        <!-- </div> -->
+    </div>
+{% endblock %}

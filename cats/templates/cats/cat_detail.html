@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+<h1>{{ cat.title }}</h1>
+<br><br>
+{% block content %}
+<button type="button" class="bbut btn btn-dark"><a class="back" href="/cats">بازگشت</a></button>
+    <div class="collection content_list_in">
+        <h4 class="collectionttl">{{ cat.title }}</h4>
+        <hr style="margin-bottom: 20px;" class="primary">
+        <div class="row boxs">
+            {% for paint in cat.paint_set.all %}          
+                <div class="col-md-6 paint_album">
+                        <!-- <div class="galin">
+                            <h4 class="pnam">{{ paint.name }}</h4>
+                            <br>
+                        </div> -->
+                        <a href="{% url 'cats:paint' cat_pk=cat.pk paint_pk=paint.pk %}">
+                            <img class="homeportrate inimg imgalbdesk" src="/{{ paint.image }}" />
+                            <p></p>
+                        </a>
+                        <!-- <div class="galin">
+                            <h5 class='pdes'>سایز : {{ paint.size }}</h5>
+                            <br>
+                            <h5 class='pdes'>قیمت : {{ paint.price }}</h5>
+                        </div> -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

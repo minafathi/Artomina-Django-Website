@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+<!-- {% load static from staticfiles %} -->
+{% load static %}
+
+{% block content %}
+    {% if note %}
+    <div class="successmsg">
+        <h4>{{ note }}</h4>
+    </div>
+    {% endif %}
+    <div id="content_list" class="content_list">
+        <h4 class="collectionttl">سفارش آنلاین</h4>
+        <hr class="primary">
+        <div class="row">
+            <div class="col-md-5 collectionform" style="direction: ltr; text-align: right;">
+                <h4 class="collectionttl pricettl">لیست قیمت ها</h4>
+                <div class="pricecon">
+                    <h4  class="price" style="cursor: pointer;" id = 'archol'><i class="fa fa-sort-desc " style="font-size:48px;color:red;"></i> پرتره سیاه قلم</h4>
+                        <div class="archol price">
+                            <h5 class = 'priceitems'> سایز آچهار (21*30) : 220,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز آسه (30*42) : 350,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز آدو (40*60) : 450,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز (50*70) : 600,000 تومان </h5>
+                        </div>
+
+                    <h4 class="price" style="cursor: pointer;" id="colorpencil"><i class="fa fa-sort-desc" style="font-size:48px;color:red"></i>  پرتره مداد رنگی</h4>
+                        <div class="colorpencil ">
+                            <h5 class = 'priceitems'> سایز آچهار (21*30) : 350,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز آسه (30*42) : 550,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز آدو (40*60) : 900,000 تومان </h5>
+                            <h5 class = 'priceitems'> سایز (50*70) : 1,200,000 تومان </h5>
+                        </div>
+
+                    <h4 class="price" style="cursor: pointer;" id="oilcolor"><i class="fa fa-sort-desc" style="font-size:48px;color:red"></i>  پرتره رنگ روغن</h4>
+                        <div class="oilcolor price">
+                            <h5 class = 'priceitems'>بسته به طرح و ابعاد از 800,000 تومان</h5>
+                        </div>
+
+                    <h4 class="price price" style="cursor: pointer;" id="sofal"><i class="fa fa-sort-desc" style="font-size:48px;color:red"></i>  بشقاب سفالی</h4>
+                        <div class="sofal">
+                            <h5 class = 'priceitems'>قطر 10 سانتی : بسته به طرح از 50,000 تومان</h5>
+                            <h5 class = 'priceitems'>قطر 20 سانتی : بسته به طرح از 80,000 تومان</h5>
+                            <h5 class = 'priceitems'>قطر 30 سانتی : بسته به طرح از 150,000 تومان</h5>
+                        </div>
+
+                    <h4 class="price " style="cursor: pointer;" id="tshert"><i class="fa fa-sort-desc" style="font-size:48px;color:red"></i>  نقاشی روی پارچه</h4>
+                        <div class="tshert price">
+                            <h5 class = 'priceitems'>بسته به طرح و ابعاد از 100,000 تومان</h5>
+                        </div>
+
+                    <h4 class="price" style="cursor: pointer;" id="boom"><i class="fa fa-sort-desc" style="font-size:48px;color:red"></i>  نقاشی روی بوم</h4>
+                        <div class="boom price">
+                            <h5 class = 'priceitems'>بسته به طرح و ابعاد از 800,000 تومان</h5>
+                        </div>
+                </div>
+            </div>
+        
+            <div class="col-md-5 collectionform">
+                <h4 class="collectionttl pricettl">ثبت سفارش</h4>
+                <form class="form-group orderfrm" enctype="multipart/form-data" action="{% url 'order:order' %}" method="POST" novalidate>
+                    {% csrf_token %}
+                    {% for field in orderform %}
+                    
+                    <label><h4>{{ field.label_tag }}</h4></label>
+                    <div class="formitms">
+                        {{ field }}
+                    </div>
+                    <br>
+                    <div class="err">
+                        {{ field.errors }}
+                    </div>
+                    
+                    <!-- </div> -->
+                        
+                    {% endfor %}
+                    <br>
+                    <input class="subbut btn btn-success" type="submit" value="ثبت سفارش">
+                    <!-- <input type="submit" value="ثبت سفارش"> -->
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
